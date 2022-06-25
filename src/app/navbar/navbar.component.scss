@@ -1,0 +1,69 @@
+@import "../../styles.scss";
+
+.navbar {
+  background-color: rgb(28, 34, 56);
+  box-shadow: 2px 2px 5px rgb(28, 34, 56) !important;
+
+  .navbar-brand,
+  .nav-link {
+    color: $fontColor;
+  }
+
+  .navbar-toggler {
+    box-shadow: none !important;
+
+    .navbar-toggler-icon {
+      height: 3px;
+      margin: 5px;
+      display: block;
+      background-color: #888;
+    }
+  }
+
+  .collapse {
+    .active {
+      font-weight: bolder;
+      color: #09c;
+
+    }
+
+    ul li:hover {
+      cursor: pointer;
+      color: $secondFontColor;
+    }
+
+    .nav-link:hover {
+      color: $secondFontColor;
+    }
+
+    img {
+      width: 30px;
+      border-radius: 50%;
+    }
+  }
+
+}
+
+.dropdown-toggle {
+  border: none;
+  background-color: transparent;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-menu[data-bs-popper] {
+  text-align: center;
+  top: 100% !important;
+  margin-top: 10px !important;
+  padding: 10px;
+  transform: translate(-50%) !important;
+}
+
+@media screen and (max-width:991px) {
+  .navbar {
+    padding: 10px 20px !important;
+  }
+
+}

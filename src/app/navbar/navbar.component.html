@@ -1,0 +1,64 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="pacman" [fullScreen]="true">
+  <h4 style="color: white;font-weight: bold;"> Loading... </h4>
+</ngx-spinner>
+<nav class="navbar navbar-expand-lg fixed-top m-0 p-0 rounded">
+  <div class="container">
+    <a class="navbar-brand me-2 fw-bold" routerLink="home">Movie4u</a>
+    <button class="navbar-toggler bg-transparent" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto  m-0">
+        <li *ngIf="isLogin" class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="home">Home</a>
+        </li>
+        <li *ngIf="isLogin" class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="movies">Movies</a>
+        </li>
+        <li *ngIf="isLogin" class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="tvshows">Tv Shows</a>
+        </li>
+        <li *ngIf="isLogin" class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="people">People</a>
+        </li>
+        <li *ngIf="isLogin" class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="about">About</a>
+        </li>
+      </ul>
+      <ul class="social list-unstyled d-flex pt-3 me-5 my-0">
+        <li  *ngIf="isLogin" class="me-3 h4"><a routerLink="search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+        <li class="me-3 h4"><a target="_blank" href="https://www.facebook.com/mohamed.hadaey"><i
+              class="fa-brands fa-facebook-square"></i></a></li>
+        <li class="me-3 h4"><a target="blank" href="https://www.instagram.com/mohamed_hadaey/"><i
+              class="fa-brands fa-instagram"></i></a></li>
+        <li class="me-3 h4"><a target="_blank" href=""><i class="fa-brands fa-twitter"></i></a></li>
+      </ul>
+      <ul class="list-unstyled d-flex pt-2 my-0">
+        <li *ngIf="!isLogin" routerLinkActive="active" routerLink="login" class="pt-2">Login</li>
+        <li *ngIf="!isLogin" routerLinkActive="active" routerLink="register" class="ms-3 pt-2">Register</li>
+        <li *ngIf="isLogin" routerLinkActive="active" (click)='logOut()' class="pt-1">Logout</li>
+        <li class="ms-3 mt-0">
+          <div class="dropdown">
+            <button class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <img [src]="isLogin?'assets/images/login.png':'assets/images/logout.png'" alt="user">
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li>
+                <h5>{{userDetails.first_name}} {{userDetails.last_name}}</h5>
+              </li>
+              <li>
+                <p>{{userDetails.email}} </p>
+              </li>
+              <li *ngIf="isLogin"><button class="btn btn-primary" (click)='logOut()'>LogOut</button></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

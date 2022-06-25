@@ -1,0 +1,34 @@
+<div class="register w-75 m-auto py-5">
+  <h2>Login Now</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="submitLoginForm(loginForm)" class="mt-5">
+    <div class="my-3">
+      <label for="email">
+        <h5>Email :</h5>
+      </label>
+      <input formControlName="email" [class.is-valid]="loginForm.get('email')?.valid && loginForm.get('email')?.touched"
+        [class.is-invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" type="email"
+        class="form-control" id="email" autocomplete="off">
+      <div class="alert alert-danger mt-2 p-2"
+        *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        <p *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</p>
+        <p *ngIf="loginForm.get('email')?.errors?.['email']">Email is not valid ex: example@gmail.com</p>
+      </div>
+    </div>
+    <div class="my-3">
+      <label for="password">
+        <h5>Password :</h5>
+      </label>
+      <input formControlName="password"
+        [class.is-valid]="loginForm.get('password')?.valid && loginForm.get('password')?.touched"
+        [class.is-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" type="password"
+        class="form-control" id="password" autocomplete="off">
+      <div class="alert alert-danger mt-2 p-2"
+        *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        <p *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</p>
+        <p *ngIf="loginForm.get('password')?.errors?.['pattern']">Password is not valid, must be from 5-15 characters
+        </p>
+      </div>
+    </div>
+    <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary d-block ms-auto mt-4">Login</button>
+  </form>
+</div>

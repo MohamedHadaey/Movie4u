@@ -1,0 +1,78 @@
+<div class="home py-5">
+  <!-- in case of id coming from movies api -->
+  <div class="row p-5" *ngIf="currentValue=='movie'">
+    <div class="col-md-4 p-3">
+      <div class="child">
+        <img src="https://image.tmdb.org/t/p/w500{{movieDetails.poster_path}}" class="img-fluid" alt="">
+      </div>
+    </div>
+    <div class="col-md-8 p-5">
+      <div class="child">
+        <h2>{{movieDetails.title}}</h2>
+        <p>{{movieDetails.tagline}}</p>
+        <ul *ngFor="let genre of movieDetails.genres">
+          <li class="bg-info py-1 px-2 m-2 ">{{genre.name}}</li>
+        </ul>
+        <h6>Vote: {{movieDetails.vote_average}}</h6>
+        <h6>Vote count: {{movieDetails.vote_count}}</h6>
+        <h6>Popularity: {{movieDetails.popularity}}</h6>
+        <h6>Release date: {{movieDetails.release_date}}</h6>
+        <p class="my-3">{{movieDetails.overview}}</p>
+        <h3 class="my-2">Production Companies: </h3>
+        <div class="row bg-info text-center rounded rounded-3 ms-1">
+          <div class="col-md-6 p-3 d-flex justify-content-center align-items-center"
+            *ngFor="let produc of movieDetails.production_companies">
+            <img src="https://image.tmdb.org/t/p/w500{{produc.logo_path}}" class="w-50" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- in case of id coming from tvshows api -->
+  <div class="row p-5" *ngIf="currentValue=='tv'">
+    <div class="col-md-4 p-3">
+      <div class="child">
+        <img src="https://image.tmdb.org/t/p/w500{{tvDetails.poster_path}}" class="img-fluid" alt="{{tvDetails.name}}">
+      </div>
+    </div>
+    <div class="col-md-8 p-5">
+      <div class="child">
+        <h2>{{tvDetails.name}}</h2>
+        <p>{{tvDetails.tagline}}</p>
+        <ul *ngFor="let genre of tvDetails.genres">
+          <li class="bg-info py-1 px-2 m-2 ">{{genre.name}}</li>
+        </ul>
+        <h6>Vote: {{tvDetails.vote_average}}</h6>
+        <h6>Vote count: {{tvDetails.vote_count}}</h6>
+        <h6>Popularity: {{tvDetails.popularity}}</h6>
+        <h6>Release date: {{tvDetails.first_air_date}}</h6>
+        <p class="my-3">{{tvDetails.overview}}</p>
+        <h3 class="my-2">Production Companies: </h3>
+        <div class="row bg-info text-center rounded rounded-3 ms-1">
+          <div class="col-md-6 p-3 d-flex justify-content-center align-items-center"
+            *ngFor="let produc of tvDetails.production_companies">
+            <img src="https://image.tmdb.org/t/p/w500{{produc.logo_path}}" class="w-50" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- in case of id coming from people api -->
+  <div class="row p-5" *ngIf="currentValue=='person'">
+    <div class="col-md-4 p-3">
+      <div class="child">
+        <img src="https://image.tmdb.org/t/p/w500{{peopleDetails.profile_path}}" class="img-fluid" alt="{{peopleDetails.name}}">
+      </div>
+    </div>
+    <div class="col-md-8 p-5">
+      <div class="child">
+        <h2 class="mb-5">{{peopleDetails.name}}</h2>
+        <h6>Known for: {{peopleDetails.known_for_department}}</h6>
+        <h6>Birthday: {{peopleDetails.birthday}}</h6>
+        <h6>Place of birth: {{peopleDetails.place_of_birth}}</h6>
+        <h4 class="mt-5">Overview : </h4>
+        <p class="my-3">{{peopleDetails.biography}}</p>
+
+      </div>
+    </div>
+  </div>

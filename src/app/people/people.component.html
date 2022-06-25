@@ -1,0 +1,31 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="pacman" [fullScreen]="true">
+  <h4 style="color: white;font-weight: bold;"> Loading... </h4>
+</ngx-spinner>
+<div class="home py-5">
+  <h1 class="my-3">Trending People</h1>
+  <div class="row mb-5">
+    <div *ngFor="let actor of trendingPeople" class=" col-sm-6 col-md-3 col-lg-2 my-2">
+      <div class="cart">
+        <a [routerLink]="['/details', actor.id , 'person']"><img [src]="imgPrifix+actor.profile_path" class="img-fluid" alt="{{actor.name}}"></a>
+      </div>
+      <h3 class="h6 mt-2 text-center">{{actor.name}}</h3>
+    </div>
+  </div>
+  <nav aria-label="Page navigation example" class="nav-pag">
+    <ul class="pagination justify-content-center">
+      <li class="page-item " (click)="getPrviousPage()">
+        <a class="page-link" [class.disable]="currentPage==1">previous</a>
+      </li>
+      <li class="page-item"><a class="page-link">...</a></li>
+      <li class="page-item" (click)="changePage($event)"><a class="page-link" [class.page]="currentPage==1">1</a></li>
+      <li class="page-item" (click)="changePage($event)"><a [class.page]="currentPage==2" class="page-link">2</a></li>
+      <li class="page-item" (click)="changePage($event)"><a class="page-link" [class.page]="currentPage==3">3</a></li>
+      <li class="page-item"><a class="page-link">...</a></li>
+      <li *ngIf="currentPage>3" class="page-item"><a class="page-link" [class.page]="currentPage>3">{{currentPage}}</a>
+      </li>
+      <li class="page-item" (click)="getNextPage()">
+        <a class="page-link">next</a>
+      </li>
+    </ul>
+  </nav>
+</div>

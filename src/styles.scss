@@ -1,1 +1,222 @@
-/* You can add global styles to this file, and also import other style files */
+// best way to catch the font links
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&display=swap');
+
+//global styles with scss method
+$bgColor:#131722;
+$lightBgColor: rgba(30, 41, 82, 0.1);
+$bgTransparent:rgba(19, 91, 117, 0.6) ;
+$fontColor:#fff;
+$borderColor:#a8a8a83d;
+$borderHeight:1px;
+$secondFontColor:#949cb0;
+$transition:all 0.3s;
+
+
+//global styles for all project
+:root {
+  --scrollBarBg: #104273;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* the handle style */
+::-webkit-scrollbar-track {
+  background-color: #eee;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollBarBg);
+}
+
+body{
+  font-family: 'Montserrat Alternates', sans-serif;
+  background-color: $bgColor;
+  color: $fontColor;
+}
+
+.fa-brands,.fa-solid,.fa-globe{
+  transition: all 0.4s;
+}
+
+.fa-linkedin:hover{
+  color: #0A66C2 !important;
+}
+
+.fa-github:hover{
+  color: #238636 !important;
+}
+
+.fa-envelope{
+  transition: all 0.3s !important;
+}
+
+.fa-envelope:hover{
+  color: rgb(255, 34, 60) !important;
+}
+
+.fa-facebook-square:hover{
+  color: #4267B2 !important;
+}
+
+.fa-instagram:hover{
+  color: rgb(255, 93, 5) !important;
+}
+
+.fa-twitter:hover{
+  color: #09c !important;
+}
+
+.fa-phone-flip:hover{
+  color: rgb(52, 226, 148);
+}
+
+.fa-globe:hover{
+  color: #555;
+}
+
+.social i{
+  color: #fff;
+}
+
+/* styles of all component */
+.brdr{
+  background-image: linear-gradient(to right, rgb(21, 21, 224) , rgb(255, 68, 5) );
+  height: 3px;
+}
+
+.see{
+  text-decoration: none;
+}
+
+.see:hover{
+  cursor: pointer;
+}
+
+.brdr~h2{
+  line-height: 50px;
+}
+
+.cart{
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 3px 9px #09081b7a;
+  border: 4px solid #ffffff17;
+  border-radius: 10px;
+}
+
+.cart:hover{
+  cursor: pointer;
+}
+
+.layer1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+.layer1 ul{
+  list-style: none;
+}
+
+.layer1 ul li{
+  background-color: #09c;
+  padding: 2px 4px;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.layer2{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+  z-index: 3;
+  opacity: 0;
+}
+
+.layer2:hover{
+  background-color: rgba(19, 91, 117, 0.6);
+  cursor: pointer;
+}
+
+
+
+.cart img{
+  transition: all 0.5s;
+}
+
+.cart:hover img{
+  transform: scale(1.1) rotate(5deg);
+}
+
+.layer2 a{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgb(36, 113, 244,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.layer2 i{
+  font-size: 30px;
+  color: #fff;
+}
+
+.fa-star{
+  font-size: 16px !important;
+  margin: 5px;
+}
+
+.cart:hover .layer2{
+  opacity: 100%;
+}
+/* pagination styles */
+.nav-pag{
+  width: fit-content;
+  margin: auto;
+}
+
+.pagination li{
+  font-weight: bold;
+}
+
+.pagination li:hover{
+  cursor: pointer;
+}
+
+
+.page{
+  background-color: #09c !important;
+  color: #fff;
+  font-weight: bold;
+}
+
+.disable{
+  color: #333 !important;
+
+}
+
+@media screen and (max-width:576px) {
+  .nav-pag li{
+      font-size: 14px !important;
+
+  }
+}

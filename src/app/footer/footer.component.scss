@@ -1,0 +1,17 @@
+.line {
+  width: 85%;
+  padding: 5px;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, rgb(255, 68, 5), rgb(21, 21, 224));
+}
+
+.context a {
+  color: #09c !important;
+  font-weight: 900;
+}
+
+@media screen and (max-width:576px) {
+  .context p {
+    font-size: 14px;
+  }
+}

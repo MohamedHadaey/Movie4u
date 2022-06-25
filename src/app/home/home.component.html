@@ -1,0 +1,67 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="pacman" [fullScreen]="true">
+  <h4 style="color: white;font-weight: bold;"> Loading... </h4>
+</ngx-spinner>
+<div class="home py-5">
+  <div class="row mb-5">
+    <div class="col-md-4 py-3 d-flex justify-content-between flex-column ">
+      <div class="brdr mt-5 mb-3 w-25"></div>
+      <h2>Top Trending Movies <br> To Wathch Right Now</h2>
+      <p>Most Watched Movies by Day <a (click)="toMovies()" class="fw-bold see">See More...</a></p>
+      <div class="brdr mb-5 mt-3 w-100"></div>
+    </div>
+    <div *ngFor="let movie of trendingMovies" class=" col-sm-6 col-md-3 col-lg-2 my-2">
+      <div class="cart">
+        <img [src]="imgPrifix+movie.poster_path" class="img-fluid" alt="{{movie.title}}">
+        <div class="layer1">
+          <ul>
+            <li><span><i class="fa fa-star"></i></span>{{movie.vote_average}}</li>
+          </ul>
+        </div>
+        <div class="layer2">
+          <a [routerLink]="['/details', movie.id,'movie']">
+            <span><i class="fa-solid fa-play"></i></span>
+          </a>
+        </div>
+      </div>
+      <h3 class="h6 mt-2">{{movie.title}}</h3>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-md-4 py-3 d-flex justify-content-between flex-column ">
+      <div class="brdr mt-5 mb-3 w-25"></div>
+      <h2>Top Trending Tv Shows <br> To Wathch Right Now</h2>
+      <p>Most Watched TV Shows by Day <a (click)="toTvShows()" class="fw-bold see">See More...</a></p>
+      <div class="brdr mb-5 mt-3 w-100"></div>
+    </div>
+    <div *ngFor="let tv of trendingTvShows" class=" col-sm-6 col-md-3 col-lg-2 my-2">
+      <div class="cart">
+        <img [src]="imgPrifix+tv.poster_path" class="img-fluid" alt="{{tv.name}}">
+        <div class="layer1">
+          <ul>
+            <li><span><i class="fa fa-star"></i></span>{{tv.vote_average}}</li>
+          </ul>
+        </div>
+        <div class="layer2">
+          <a [routerLink]="['/details', tv.id,'tv']">
+            <span><i class="fa-solid fa-play"></i></span>
+          </a>
+        </div>
+      </div>
+      <h3 class="h6 mt-2">{{tv.name}}</h3>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-md-4 py-3 d-flex justify-content-between flex-column ">
+      <div class="brdr mt-5 mb-3 w-25"></div>
+      <h2>Top Trending People <br> To Wathch Right Now</h2>
+      <p>Most Watched people <a (click)="toPeople()" class="fw-bold see">See More...</a></p>
+      <div class="brdr mb-5 mt-3 w-100"></div>
+    </div>
+    <div *ngFor="let actor of trendingPeople" class=" col-sm-6 col-md-3 col-lg-2 my-2">
+      <div class="cart">
+        <a [routerLink]="['/details', actor.id , 'person']"><img [src]="imgPrifix+actor.profile_path" class="img-fluid" alt="{{actor.name}}"></a>
+      </div>
+      <h3 class="h6 mt-2">{{actor.name}}</h3>
+    </div>
+  </div>
+</div>
