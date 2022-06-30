@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { TrendingService } from '../trending.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
+
+
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -14,6 +16,14 @@ export class DetailsComponent implements OnInit {
   movieDetails: any = [];
   tvDetails: any = [];
   peopleDetails: any = [];
+  productionCompanies:any[]=[];
+  moviesTrailers:any[] = [];
+  TvTrailers:any[] = [];
+  trailerKey:any="";
+  currentKey:any = "";
+  finalkey:string ="";
+
+
 
   constructor(
     private _ActivatedRoute: ActivatedRoute,
@@ -31,6 +41,18 @@ export class DetailsComponent implements OnInit {
         .getMovieDetails(this.currentId)
         .subscribe((response) => {
           this.movieDetails = response;
+          this.productionCompanies = this.movieDetails.production_companies;
+          this.productionCompanies = this.productionCompanies.filter( (element:any) => element.logo_path != null);
+         // to gret movie trailers
+          this._TrendingService.getMovieTrailer(this.currentId).subscribe( (response) => {
+            this.moviesTrailers = response.results;
+            this.moviesTrailers = this.moviesTrailers.filter( (trail:any) => trail.type == "Trailer" && trail.site == "YouTube" && trail.name == "Final Trailer");
+            this.trailerKey = this.moviesTrailers.filter( (key:any) => {
+              this.currentKey = key;
+              this.finalkey = this.currentKey.key
+              // console.log(this.finalkey);
+            })
+          } )
         });
         this.spinner.hide();
     } else if(this.currentValue == 'tv') {
@@ -38,6 +60,18 @@ export class DetailsComponent implements OnInit {
         .getTvDetails(this.currentId)
         .subscribe((response) => {
           this.tvDetails = response;
+          this.productionCompanies = this.tvDetails.production_companies;
+          this.productionCompanies = this.productionCompanies.filter( (element:any) => element.logo_path != null);
+          // to gret tv trailers
+          this._TrendingService.getTvTrailer(this.currentId).subscribe( (response) => {
+            this.TvTrailers = response.results;
+            this.TvTrailers = this.TvTrailers.filter( (trail:any) => trail.type == "Trailer" && trail.site == "YouTube" && trail.name == "Final Trailer");
+            this.trailerKey = this.TvTrailers.filter( (key:any) => {
+              this.currentKey = key;
+              this.finalkey = this.currentKey.key
+              // console.log(this.finalkey);
+            })
+          } )
         });
         this.spinner.hide();
     }else{
@@ -48,5 +82,7 @@ export class DetailsComponent implements OnInit {
         });
         this.spinner.hide();
     }
+
+
   }
 }

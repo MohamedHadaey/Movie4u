@@ -35,7 +35,7 @@ import { SearchComponent } from './search/search.component';
     TvshowsComponent,
     NotfoundComponent,
     PeopleComponent,
-    SearchComponent
+    SearchComponent,
 
   ],
   imports: [

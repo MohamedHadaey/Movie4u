@@ -1,4 +1,4 @@
-<div class="home py-5">
+<div div class="home py-5">
   <!-- in case of id coming from movies api -->
   <div class="row p-5" *ngIf="currentValue=='movie'">
     <div class="col-md-4 p-3">
@@ -18,15 +18,24 @@
         <h6>Popularity: {{movieDetails.popularity}}</h6>
         <h6>Release date: {{movieDetails.release_date}}</h6>
         <p class="my-3">{{movieDetails.overview}}</p>
-        <h3 class="my-2">Production Companies: </h3>
-        <div class="row bg-info text-center rounded rounded-3 ms-1">
-          <div class="col-md-6 p-3 d-flex justify-content-center align-items-center"
-            *ngFor="let produc of movieDetails.production_companies">
-            <img src="https://image.tmdb.org/t/p/w500{{produc.logo_path}}" class="w-50" alt="">
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-12">
+        <div class="parent d-flex justify-content-center align-items-center w-100">
+          <div class="chil">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ahy5o5nT4oI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </div>
+    <h3 class="mt-5">Production Companies: </h3>
+    <div *ngIf="productionCompanies.length == 0" class="w-100 my-5 d-flex justify-content-center align-items-center">
+      <h4>Sorry! we don't know these production company</h4>
+    </div>
+    <ul class="list-unstyled d-flex companies">
+      <li *ngFor="let produc of productionCompanies" class="bg-light m-1 w-25 p-1 rounded-3 d-flex justify-content-between align-items-center flex-column"><img src="https://image.tmdb.org/t/p/w500{{produc.logo_path}}" class=" img-fluid m-0" alt="{{produc.name}}"></li>
+    </ul>
   </div>
   <!-- in case of id coming from tvshows api -->
   <div class="row p-5" *ngIf="currentValue=='tv'">
@@ -47,15 +56,24 @@
         <h6>Popularity: {{tvDetails.popularity}}</h6>
         <h6>Release date: {{tvDetails.first_air_date}}</h6>
         <p class="my-3">{{tvDetails.overview}}</p>
-        <h3 class="my-2">Production Companies: </h3>
-        <div class="row bg-info text-center rounded rounded-3 ms-1">
-          <div class="col-md-6 p-3 d-flex justify-content-center align-items-center"
-            *ngFor="let produc of tvDetails.production_companies">
-            <img src="https://image.tmdb.org/t/p/w500{{produc.logo_path}}" class="w-50" alt="">
+      </div>
+    </div>
+  <div class="row mt-3">
+      <div class="col-12">
+        <div class="parent d-flex justify-content-center align-items-center w-100">
+          <div class="chil">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ahy5o5nT4oI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </div>
+    <h3 class="mt-5">Production Companies: </h3>
+    <div *ngIf="productionCompanies.length == 0" class="w-100 my-5 d-flex justify-content-center align-items-center">
+      <h4>Sorry! we don't know these production company</h4>
+    </div>
+    <ul class="list-unstyled d-flex companies">
+      <li *ngFor="let produc of productionCompanies" class="bg-light m-1 w-25 p-1 rounded-3"><img src="https://image.tmdb.org/t/p/w500{{produc.logo_path}}" class=" img-fluid m-0" alt="{{produc.name}}"></li>
+    </ul>
   </div>
   <!-- in case of id coming from people api -->
   <div class="row p-5" *ngIf="currentValue=='person'">
@@ -72,7 +90,7 @@
         <h6>Place of birth: {{peopleDetails.place_of_birth}}</h6>
         <h4 class="mt-5">Overview : </h4>
         <p class="my-3">{{peopleDetails.biography}}</p>
-
       </div>
     </div>
   </div>
+</div>

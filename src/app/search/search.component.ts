@@ -22,7 +22,7 @@ export class SearchComponent implements OnInit {
         this.searchArray = response;
         this.resultTrending = this.searchArray.results;
         this.resultTrending = this.resultTrending.filter( (elem:any) => elem.poster_path != null )
-        console.log(this.resultTrending)
+        
     } )
   }
 

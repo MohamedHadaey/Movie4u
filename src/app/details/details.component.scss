@@ -25,6 +25,14 @@
   }
 }
 
+.chil{
+  width: fit-content;
+}
+
+iframe{
+  border-radius: 10px !important;
+}
+
 @media screen and (max-width:576px) {
   .col-md-4 {
     padding: 10px 0 !important;
@@ -39,6 +47,12 @@
 
   .row {
     padding: 20px 10px !important;
+  }
+
+  iframe{
+    width: 340px !important;
+    height: 200px !important;
+    margin:5px 2px 5px 20px !important;
   }
 
 }
@@ -57,6 +71,12 @@
 
   .row {
     padding: 20px 10px !important;
+  }
+
+  iframe{
+    width: 480px !important;
+    height: 290px !important;
+    margin:5px 2px 5px 20px !important;
   }
 
 }

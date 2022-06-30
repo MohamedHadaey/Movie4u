@@ -37,4 +37,16 @@ export class TrendingService {
       `https://api.themoviedb.org/3/search/movie?api_key=6561cb2930d16b56c3b86696d0405426&query=${searchingWord}`
     );
   }
+
+  getMovieTrailer(currentId: any):Observable<any>{
+    return this._HttpClient.get(
+      `https://api.themoviedb.org/3/movie/${currentId}/videos?api_key=6561cb2930d16b56c3b86696d0405426&language=en-US`
+    );
+  }
+
+  getTvTrailer(currentId: any):Observable<any>{
+    return this._HttpClient.get(
+      `https://api.themoviedb.org/3/tv/${currentId}/videos?api_key=6561cb2930d16b56c3b86696d0405426&language=en-US`
+    );
+  }
 }
