@@ -22,7 +22,7 @@ export class DetailsComponent implements OnInit {
   trailerKey:any="";
   currentKey:any = "";
   finalkey:string ="";
-
+  fixedLink:any="https://www.youtube.com/embed/"
 
 
   constructor(
@@ -43,14 +43,13 @@ export class DetailsComponent implements OnInit {
           this.movieDetails = response;
           this.productionCompanies = this.movieDetails.production_companies;
           this.productionCompanies = this.productionCompanies.filter( (element:any) => element.logo_path != null);
-         // to gret movie trailers
+         // to get movie trailers
           this._TrendingService.getMovieTrailer(this.currentId).subscribe( (response) => {
             this.moviesTrailers = response.results;
-            this.moviesTrailers = this.moviesTrailers.filter( (trail:any) => trail.type == "Trailer" && trail.site == "YouTube" && trail.name == "Final Trailer");
+            this.moviesTrailers = this.moviesTrailers.filter( (trail:any) => trail.type == "Trailer" && trail.site == "YouTube");
             this.trailerKey = this.moviesTrailers.filter( (key:any) => {
               this.currentKey = key;
               this.finalkey = this.currentKey.key
-              // console.log(this.finalkey);
             })
           } )
         });
@@ -65,11 +64,9 @@ export class DetailsComponent implements OnInit {
           // to gret tv trailers
           this._TrendingService.getTvTrailer(this.currentId).subscribe( (response) => {
             this.TvTrailers = response.results;
-            this.TvTrailers = this.TvTrailers.filter( (trail:any) => trail.type == "Trailer" && trail.site == "YouTube" && trail.name == "Final Trailer");
             this.trailerKey = this.TvTrailers.filter( (key:any) => {
               this.currentKey = key;
               this.finalkey = this.currentKey.key
-              // console.log(this.finalkey);
             })
           } )
         });

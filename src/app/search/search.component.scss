@@ -1,0 +1,15 @@
+#search{
+  color: #ccc !important;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #aaa;
+  text-align: center;
+  font-weight: bolder;
+
+}
+
+#search::placeholder {
+  padding: 3px;
+  text-align: center;
+  color: #999;
+}

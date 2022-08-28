@@ -1,9 +1,16 @@
 <div class="my-5 py-5 text-center">
-  <input [(ngModel)]="searchingWord" (keyup)="getSearching()" type="text" class="form-control w-50 m-auto" placeholder="Search......">
+  <div class="row">
+    <div class="col-md-6 p-2">
+      <input [(ngModel)]="movieSearchingWord" type="search" (keyup)="getMovieSearching()" placeholder="Search by movie name..." class="form-control bg-transparent" id="search" autocomplete="off">
+    </div>
+    <div class="col-md-6 p-2">
+      <input type="search" [(ngModel)]="tvSearchingWord" (keyup)="getTvshowsSearching()" placeholder="Search by tv shows name..." class="form-control bg-transparent" id="search" autocomplete="off">
+    </div>
+  </div>
   <div class="results my-5 h-100" >
-    <div *ngIf="resultTrending==null"> <h3 class="my-5">There is no items <br> please search with movie name....</h3> </div>
+    <div *ngIf="resultMoviesTrending==null && resultTvshowsTrending==null"> <h3 class="my-5">There is no items <br> please search with movie or tv shows name....</h3> </div>
     <div class="row mb-5">
-      <div *ngFor="let trendSearch of resultTrending " class=" col-sm-6 col-md-3 col-lg-2 my-2">
+      <div *ngFor="let trendSearch of resultMoviesTrending " class=" col-sm-6 col-md-3 col-lg-2 my-2">
         <div class="cart">
           <img [src]="imgPrifix+trendSearch.poster_path" class="img-fluid" alt="{{trendSearch.title}}">
           <div class="layer1">
@@ -18,6 +25,24 @@
           </div>
         </div>
         <h3 class="h6 mt-2 text-center">{{trendSearch.title}}</h3>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div *ngFor="let trendSearch of resultTvshowsTrending " class=" col-sm-6 col-md-3 col-lg-2 my-2">
+        <div class="cart">
+          <img [src]="imgPrifix+trendSearch.poster_path" class="img-fluid" alt="{{trendSearch.name}}">
+          <div class="layer1">
+            <ul>
+              <li><span><i class="fa fa-star"></i></span>{{trendSearch.vote_average}}</li>
+            </ul>
+          </div>
+          <div class="layer2">
+            <a [routerLink]="['/details', trendSearch.id , 'tv']">
+              <span><i class="fa-solid fa-play"></i></span>
+            </a>
+          </div>
+        </div>
+        <h3 class="h6 mt-2 text-center">{{trendSearch.name}}</h3>
       </div>
     </div>
   </div>

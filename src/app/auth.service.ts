@@ -33,14 +33,14 @@ export class AuthService {
 
   signUp(formData: object): Observable<any> {
     return this._HttpClient.post(
-      `https://route-egypt-api.herokuapp.com/signup`,
+      `https://routeegypt.herokuapp.com/signup`,
       formData
     );
   }
 
   signIn(formData: object): Observable<any> {
     return this._HttpClient.post(
-      `https://route-egypt-api.herokuapp.com/signin`,
+      `https://routeegypt.herokuapp.com/signin`,
       formData
     );
   }

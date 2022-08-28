@@ -13,16 +13,28 @@ export class SearchComponent implements OnInit {
     private spinner: NgxSpinnerService) { }
 
   imgPrifix: string = 'https://image.tmdb.org/t/p/w500';
-  searchArray: any = {};
-  searchingWord:string="";
-  resultTrending:any =null;
+  moviesSearchArray: any = {};
+  tvshowsSearchArray: any = {};
+  movieSearchingWord:string="";
+  tvSearchingWord:string="";
+  resultMoviesTrending:any =null;
+  resultTvshowsTrending:any =null;
 
-  getSearching(){
-    this._TrendingService.getTrendingBySearch(this.searchingWord).subscribe( (response) => {
-        this.searchArray = response;
-        this.resultTrending = this.searchArray.results;
-        this.resultTrending = this.resultTrending.filter( (elem:any) => elem.poster_path != null )
-        
+  getMovieSearching(){
+    this._TrendingService.getTrendingMovieBySearch(this.movieSearchingWord).subscribe( (response) => {
+        this.moviesSearchArray = response;
+        this.resultMoviesTrending = this.moviesSearchArray.results;
+        this.resultMoviesTrending = this.resultMoviesTrending.filter( (elem:any) => elem.poster_path != null )
+
+    } )
+  }
+
+  getTvshowsSearching(){
+    this._TrendingService.getTrendingTvshowsBySearch(this.tvSearchingWord).subscribe( (response) => {
+        this.tvshowsSearchArray = response;
+        this.resultTvshowsTrending = this.tvshowsSearchArray.results;
+        this.resultTvshowsTrending = this.resultTvshowsTrending.filter( (elem:any) => elem.poster_path != null )
+
     } )
   }
 

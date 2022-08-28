@@ -32,9 +32,15 @@ export class TrendingService {
     );
   }
 
-  getTrendingBySearch(searchingWord:string){
+  getTrendingMovieBySearch(searchingWord:string){
     return this._HttpClient.get(
       `https://api.themoviedb.org/3/search/movie?api_key=6561cb2930d16b56c3b86696d0405426&query=${searchingWord}`
+    );
+  }
+
+  getTrendingTvshowsBySearch(searchingWord:string){
+    return this._HttpClient.get(
+      `https://api.themoviedb.org/3/search/tv?api_key=6561cb2930d16b56c3b86696d0405426&query=${searchingWord}`
     );
   }
 

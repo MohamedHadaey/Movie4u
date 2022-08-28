@@ -24,7 +24,8 @@
       <div class="col-12">
         <div class="parent d-flex justify-content-center align-items-center w-100">
           <div class="chil">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/ahy5o5nT4oI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h2 *ngIf="!finalkey" class="my-5">Sorry we don't have " {{movieDetails.title}} " trailer</h2>
+            <iframe *ngIf="finalkey" width="560" height="315" [src]="fixedLink+finalkey | save" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -62,7 +63,8 @@
       <div class="col-12">
         <div class="parent d-flex justify-content-center align-items-center w-100">
           <div class="chil">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/ahy5o5nT4oI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h2 *ngIf="!finalkey" class="my-5">Sorry we don't have " {{tvDetails.name}} " trailer</h2>
+            <iframe *ngIf="finalkey" width="560" height="315" [src]="fixedLink+finalkey | save" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>

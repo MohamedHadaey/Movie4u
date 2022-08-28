@@ -20,6 +20,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SearchComponent } from './search/search.component';
+import { SavePipe } from './save.pipe';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SearchComponent } from './search/search.component';
     NotfoundComponent,
     PeopleComponent,
     SearchComponent,
+    SavePipe,
 
   ],
   imports: [
